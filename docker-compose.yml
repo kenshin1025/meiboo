@@ -1,0 +1,20 @@
+version: "3"
+services:
+  server:
+    build: ./server
+    container_name: meiboo_server
+    volumes:
+      - ./server/:/go/src/app
+    ports:
+      - "8080:8080"
+  db:
+    build: ./db
+    container_name: meiboo_db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db/init.d:/docker-entrypoint-initdb.d
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
