@@ -13,7 +13,6 @@ export const mutations = {
 export const actions = {
   async getMeibo({ commit }) {
     await axios.get('http://localhost:8080/meibo').then((res) => {
-      console.log(res.data)
       if (res.status === 200) {
         commit('setMeibo', res.data.meibo)
       }

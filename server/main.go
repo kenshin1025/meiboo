@@ -7,12 +7,14 @@ import (
 	"net/http"
 )
 
-type user struct {
-	Name string `json:"name"`
+type member struct {
+	Image   string `json:"img"`
+	Name    string `json:"name"`
+	Comment string `json:"comment"`
 }
 
 type getMeiboResponse struct {
-	Meibo []user `json:"meibo"`
+	Meibo []member `json:"meibo"`
 }
 
 func test(w http.ResponseWriter, r *http.Request) {
@@ -21,7 +23,7 @@ func test(w http.ResponseWriter, r *http.Request) {
 
 func meibo(w http.ResponseWriter, r *http.Request) {
 	var data getMeiboResponse
-	data.Meibo = []user{{"kenshin"}, {"健心"}, {"あああ"}, {"afasfhafa"}}
+	data.Meibo = []member{{"jack", "kenshin", "1人目"}, {"jeane", "健心", "こんにちは。よろしくお願いします"}, {"jodi", "あああ", "ああああああああああああああああああああああああああああああああああああ"}}
 	res, err := json.Marshal(data)
 	if err != nil {
 		log.Fatal(err)
