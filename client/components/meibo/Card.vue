@@ -2,7 +2,7 @@
   <v-card class="mx-auto" max-width="344" outlined>
     <v-list-item three-line>
       <v-list-item-avatar size="80" color="grey">
-        <v-img :src="'https://joeschmoe.io/api/v1/' + user.img"></v-img>
+        <v-img :src="'https://joeschmoe.io/api/v1/' + user.image"></v-img>
       </v-list-item-avatar>
       <v-list-item-content>
         <div class="overline mb-4">OVERLINE</div>
