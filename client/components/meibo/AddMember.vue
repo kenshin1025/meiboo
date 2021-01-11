@@ -1,7 +1,16 @@
 <template>
   <v-card class="mx-auto" max-width="344" outlined>
-    <v-list-item three-line>
-      <v-list-item-avatar size="80" color="grey"> </v-list-item-avatar>
+    <v-card-title>メンバーを追加する</v-card-title>
+    <v-card-text>
+      <v-text-field
+        hint="追加したいメンバーの名前を入力してください"
+        placeholder="名前"
+        solo
+        @change="add()"
+      ></v-text-field>
+    </v-card-text>
+    <v-card-actions><v-spacer></v-spacer><v-btn>追加</v-btn></v-card-actions>
+    <!-- <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-4"></div>
         <v-list-item-title class="headline mb-1">
@@ -16,7 +25,7 @@
           ></v-textarea>
         </v-list-item-subtitle>
       </v-list-item-content>
-    </v-list-item>
+    </v-list-item> -->
   </v-card>
 </template>
 

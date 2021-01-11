@@ -8,6 +8,11 @@ export const mutations = {
   setMeibo(state, meibo) {
     state.meibo = meibo
   },
+  updateMemberName(state, { index, name }) {
+    const member = state.meibo[index]
+    member.name = name
+    state.meibo.splice(index, 1, member)
+  },
 }
 
 export const actions = {
@@ -17,5 +22,9 @@ export const actions = {
         commit('setMeibo', res.data.meibo)
       }
     })
+  },
+  editMemberName({ commit, state }, { token, name }) {
+    const index = state.meibo.findIndex((member) => member.token === token)
+    commit('updateMemberName', { index, name })
   },
 }

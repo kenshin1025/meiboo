@@ -5,20 +5,20 @@
       <Card
         v-for="(member, i) in $store.state.meibo.meibo"
         :key="i"
-        :user="member"
+        :member="member"
       />
-      <AddCard></AddCard>
+      <AddMember></AddMember>
     </v-col>
   </v-row>
 </template>
 
 <script>
 import Card from '~/components/meibo/Card.vue'
-import AddCard from '~/components/meibo/AddCard.vue'
+import AddMember from '~/components/meibo/AddMember.vue'
 export default {
   components: {
     Card,
-    AddCard,
+    AddMember,
   },
   created() {
     this.$store.dispatch('meibo/getMeibo')

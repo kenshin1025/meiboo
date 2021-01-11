@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS member (
   token VARCHAR(100) NOT NULL,
   image VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
-  comment TEXT,
+  comment TEXT NOT NULL,
   workspace_id int NOT NULL,
   FOREIGN KEY (workspace_id) REFERENCES workspace(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
