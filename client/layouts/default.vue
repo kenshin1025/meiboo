@@ -15,7 +15,10 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer :absolute="!fixed" app>
+    <v-footer absolute app>
+      <a>https://github.com/kenshin1025/meiboo</a>
+      <v-spacer />
+      <span>this is {{ this.$route.params.token }}</span>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
