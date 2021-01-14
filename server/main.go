@@ -28,6 +28,9 @@ func main() {
 	http.HandleFunc("/meibo", func(w http.ResponseWriter, r *http.Request) {
 		meibo.Meibo(w, r, db)
 	})
+	http.HandleFunc("/meibo/tags", func(w http.ResponseWriter, r *http.Request) {
+		meibo.Tags(w, r, db)
+	})
 	http.HandleFunc("/meibo/update", func(w http.ResponseWriter, r *http.Request) {
 		meibo.Update(w, r, db)
 	})

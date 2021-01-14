@@ -1,12 +1,16 @@
 <template>
-  <v-card class="mx-auto" max-width="344" outlined>
+  <v-card class="mx-auto" width="400" height="140" outlined>
     <v-list-item three-line>
       <v-list-item-avatar size="80" color="grey">
-        <v-img :src="'https://joeschmoe.io/api/v1/' + member.image"></v-img>
+        <v-img
+          :src="'https://picsum.photos/seed/' + member.token + '/100'"
+        ></v-img>
       </v-list-item-avatar>
       <v-list-item-content
-        ><v-chip-group show-arrows center-active
-          ><v-chip v-for="i in 5" :key="i">tag</v-chip></v-chip-group
+        ><v-chip-group center-active column
+          ><v-chip v-for="(tag, i) in member.tags" :key="i" x-small>
+            {{ tag.name }}
+          </v-chip></v-chip-group
         >
         <v-list-item-title
           v-if="!name_edit"
