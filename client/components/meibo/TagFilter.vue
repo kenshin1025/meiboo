@@ -42,7 +42,7 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="!tagName" @click="submit">
+            <v-btn color="primary" :disabled="!tagName" @click="addTag">
               タグを追加する
             </v-btn>
           </v-card-actions>
@@ -69,7 +69,13 @@ export default {
     setFilterTag() {
       this.$store.commit('meibo/setFilterTag', this.tags)
     },
-    submit() {},
+    addTag() {
+      this.dialog = false
+      this.$store.dispatch('meibo/addTag', {
+        tagName: this.tagName,
+      })
+      this.tagName = ''
+    },
   },
 }
 </script>

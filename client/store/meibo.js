@@ -17,6 +17,9 @@ export const mutations = {
   setTags(state, tags) {
     state.tags = tags
   },
+  addTag(state, tag) {
+    state.tags.push(tag)
+  },
   setSearchWord(state, searchWord) {
     state.searchWord = searchWord
   },
@@ -61,6 +64,19 @@ export const actions = {
         if (res.status === 200) {
           const member = { ...postMeiboRequest, token: res.data.token }
           commit('addMember', member)
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
+  async addTag({ commit }, postTagsRequest) {
+    await axios
+      .post('http://localhost:8080/meibo/tags', postTagsRequest)
+      .then((res) => {
+        if (res.status === 200) {
+          const tag = { id: res.data.tagID, name: postTagsRequest.tagName }
+          commit('addTag', tag)
         }
       })
       .catch((err) => {

@@ -84,6 +84,9 @@ export default {
         comment: this.comment,
         tags: this.tags,
       })
+      this.name = ''
+      this.comment = ''
+      this.tags.splice(0, this.tags.length)
     },
   },
 }
